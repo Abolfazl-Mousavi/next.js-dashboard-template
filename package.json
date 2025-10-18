@@ -1,0 +1,34 @@
+{
+  "name": "micro-frontends",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "build:host": "turbo run build --filter=host",
+    "build:checkout": "turbo run build --filter=checkout",
+    "build:auth": "turbo run build --filter=auth",
+    "build:product": "turbo run build --filter=product",
+    "dev": "turbo dev --concurrency=12",
+    "dev:host": "turbo dev --filter=host --concurrency=12",
+    "dev:checkout": "turbo dev --filter=checkout --concurrency=12",
+    "dev:auth": "turbo dev --filter=auth --concurrency=12",
+    "dev:product": "turbo dev --filter=product --concurrency=12",
+    "start": "turbo run start",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "prettier": "^3.1.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@1.22.21"
+}
