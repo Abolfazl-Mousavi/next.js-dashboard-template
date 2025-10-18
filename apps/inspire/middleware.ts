@@ -3,9 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // the list of all allowed origins
 const allowedOrigins = [
   "http://localhost:3000",
-  "http://localhost:3001",
-  "https://micro-frontends-demo.vercel.app",
-  "https://micro-frontends-product.vercel.app",
+  "http://localhost:3001"
 ];
 
 export function middleware(request: NextRequest) {
