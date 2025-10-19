@@ -1,6 +1,6 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 AS base
+FROM oven/bun:debian AS base
 WORKDIR /usr/src/app
 
 # install dependencies into temp directory
@@ -21,18 +21,19 @@ FROM base AS prerelease
 COPY --from=install /temp/dev/node_modules node_modules
 COPY . .
 
-# [optional] tests & build
-ENV NODE_ENV=production
-RUN bun test
+ENV SKIP_ENV_VALIDATION=true
 RUN bun run build
 
 # copy production dependencies and source code into final image
 FROM base AS release
-COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/app/index.ts .
-COPY --from=prerelease /usr/src/app/package.json .
+# Copy build output and necessary files
+COPY --from=prerelease /usr/src/app/.next ./.next
+COPY --from=prerelease /usr/src/app/public ./public
+COPY --from=prerelease /usr/src/app/node_modules ./node_modules
+COPY --from=prerelease /usr/src/app/package.json ./package.json
+COPY --from=prerelease /usr/src/app/next.config.* ./
 
-# run the app
+# Start Next.js server
 USER bun
-EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "run", "index.ts" ]
+EXPOSE 3000
+ENTRYPOINT ["bun", "run", "start"]
