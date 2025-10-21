@@ -42,12 +42,6 @@ export function NavProjects({
 			<SidebarMenu>
 				{projects.map((item) => (
 					<SidebarMenuItem key={item.name}>
-						<SidebarMenuButton asChild>
-							<a href={item.url}>
-								<item.icon />
-								<span>{item.name}</span>
-							</a>
-						</SidebarMenuButton>
 						<DropdownMenu>
 							<DropdownMenuTrigger asChild>
 								<SidebarMenuAction showOnHover>
@@ -57,7 +51,7 @@ export function NavProjects({
 							</DropdownMenuTrigger>
 							<DropdownMenuContent
 								className="w-48"
-								side={isMobile ? "bottom" : "right"}
+								side={isMobile ? "bottom" : "left"}
 								align={isMobile ? "end" : "start"}
 							>
 								<DropdownMenuItem>
@@ -75,12 +69,18 @@ export function NavProjects({
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
+						<SidebarMenuButton asChild>
+							<a href={item.url}>
+								<item.icon />
+								<span>{item.name}</span>
+							</a>
+						</SidebarMenuButton>
 					</SidebarMenuItem>
 				))}
 				<SidebarMenuItem>
 					<SidebarMenuButton>
-						<MoreHorizontal />
 						<span>More</span>
+						<MoreHorizontal />
 					</SidebarMenuButton>
 				</SidebarMenuItem>
 			</SidebarMenu>

@@ -28,6 +28,7 @@ import {
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { siteConfig } from "@/config/site";
+import { SearchForm } from "./search-form";
 
 const data = {
 	user: {
@@ -174,6 +175,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 						</SidebarMenuButton>
 					</SidebarMenuItem>
 				</SidebarMenu>
+				<SearchForm />
 			</SidebarHeader>
 			<SidebarContent>
 				<NavMain items={data.navMain} />
