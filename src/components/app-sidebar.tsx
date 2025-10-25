@@ -1,10 +1,12 @@
 "use client";
 
 import {
+	AudioWaveform,
 	BookOpen,
 	Bot,
 	Command,
 	Frame,
+	GalleryVerticalEnd,
 	LifeBuoy,
 	MapIcon,
 	PieChart,
@@ -29,6 +31,7 @@ import {
 } from "@/components/ui/sidebar";
 import { siteConfig } from "@/config/site";
 import { SearchForm } from "./search-form";
+import { TeamSwitcher } from "./team-switcher";
 
 const data = {
 	user: {
@@ -36,6 +39,23 @@ const data = {
 		email: "m@example.com",
 		avatar: "/avatars/shadcn.jpg",
 	},
+	teams: [
+		{
+			name: "Acme Inc",
+			logo: GalleryVerticalEnd,
+			plan: "Enterprise",
+		},
+		{
+			name: "Acme Corp.",
+			logo: AudioWaveform,
+			plan: "Startup",
+		},
+		{
+			name: "Evil Corp.",
+			logo: Command,
+			plan: "Free",
+		},
+	],
 	navMain: [
 		{
 			title: "Playground",
@@ -158,23 +178,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
 		<Sidebar variant="inset" {...props}>
 			<SidebarHeader>
-				<SidebarMenu>
-					<SidebarMenuItem>
-						<SidebarMenuButton size="lg" asChild>
-							<a href="/">
-								<div className="grid flex-1 text-right text-sm leading-tight">
-									<span className="truncate font-medium">
-										{siteConfig.name}
-									</span>
-									<span className="truncate text-xs">Enterprise</span>
-								</div>
-								<div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-									<Command className="size-4" />
-								</div>
-							</a>
-						</SidebarMenuButton>
-					</SidebarMenuItem>
-				</SidebarMenu>
+				<TeamSwitcher teams={data.teams} />
 				<SearchForm />
 			</SidebarHeader>
 			<SidebarContent>
