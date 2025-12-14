@@ -2,9 +2,9 @@
 
 import {
 	Folder,
+	Forward,
 	type LucideIcon,
 	MoreHorizontal,
-	Share,
 	Trash2,
 } from "lucide-react";
 
@@ -42,6 +42,12 @@ export function NavProjects({
 			<SidebarMenu>
 				{projects.map((item) => (
 					<SidebarMenuItem key={item.name}>
+						<SidebarMenuButton asChild>
+							<a href={item.url}>
+								<item.icon />
+								<span>{item.name}</span>
+							</a>
+						</SidebarMenuButton>
 						<DropdownMenu>
 							<DropdownMenuTrigger asChild>
 								<SidebarMenuAction showOnHover>
@@ -50,8 +56,8 @@ export function NavProjects({
 								</SidebarMenuAction>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent
-								className="w-48"
-								side={isMobile ? "bottom" : "left"}
+								className="w-48 rounded-lg"
+								side={isMobile ? "bottom" : "right"}
 								align={isMobile ? "end" : "start"}
 							>
 								<DropdownMenuItem>
@@ -59,7 +65,7 @@ export function NavProjects({
 									<span>View Project</span>
 								</DropdownMenuItem>
 								<DropdownMenuItem>
-									<Share className="text-muted-foreground" />
+									<Forward className="text-muted-foreground" />
 									<span>Share Project</span>
 								</DropdownMenuItem>
 								<DropdownMenuSeparator />
@@ -69,18 +75,12 @@ export function NavProjects({
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
-						<SidebarMenuButton asChild>
-							<a href={item.url}>
-								<item.icon />
-								<span>{item.name}</span>
-							</a>
-						</SidebarMenuButton>
 					</SidebarMenuItem>
 				))}
 				<SidebarMenuItem>
-					<SidebarMenuButton>
+					<SidebarMenuButton className="text-sidebar-foreground/70">
+						<MoreHorizontal className="text-sidebar-foreground/70" />
 						<span>More</span>
-						<MoreHorizontal />
 					</SidebarMenuButton>
 				</SidebarMenuItem>
 			</SidebarMenu>
