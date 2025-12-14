@@ -15,11 +15,11 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-	name: "Tavana Portal",
+	name: "Dashboard Template",
 	description: "",
 	url: "",
 	ogImage: "",
-	author: "Tavana Gold Team",
+	author: "",
 	keywords: [],
 	links: {
 		twitter: "https://twitter.com/",

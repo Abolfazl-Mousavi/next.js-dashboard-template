@@ -1,29 +1,63 @@
-# Create T3 App
+# Next.js Dashboard Template
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A minimal dashboard starter built with **Next.js 15**, **React 19**, **TypeScript**, **Tailwind CSS**, and **Shadcn**.
 
-## What's next? How do I make an app with this?
+---
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Getting Started
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+Install dependencies:
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+```bash
+bun install
+```
 
-## Learn More
+Run the development server:
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+```bash
+bun dev
+```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Open [http://localhost:3000](http://localhost:3000)
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+---
 
-## How do I deploy this?
+## Tech Stack
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+* Next.js 15
+* React 19
+* TypeScript
+* Tailwind CSS
+* Shadcn UI
+* NextAuth.js
+* Zod
+
+---
+
+## Common Scripts
+
+```bash
+bun dev
+bun build
+bun start
+bun typecheck
+```
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXTAUTH_SECRET=your-secret
+NEXTAUTH_URL=http://localhost:3000
+```
+
+---
+
+## Notes
+
+* Uses Bun as the package manager
+* Simple and easy to extend
+* Intended as a starter template
