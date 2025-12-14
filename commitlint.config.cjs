@@ -4,7 +4,16 @@ module.exports = {
 		"type-enum": [
 			2,
 			"always",
-			["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"],
+			[
+				"feat",
+				"fix",
+				"docs",
+				"style",
+				"refactor",
+				"perf",
+				"test",
+				"chore",
+			],
 		],
 		"subject-case": [2, "always", "sentence-case"],
 		"subject-full-stop": [2, "never", "."],
