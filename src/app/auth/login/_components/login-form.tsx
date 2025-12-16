@@ -1,3 +1,4 @@
+"use client";
 import { Github, Instagram } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import {
 	FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 export function LoginForm({
@@ -33,11 +35,20 @@ export function LoginForm({
 					</Field>
 					<FieldSeparator>Or</FieldSeparator>
 					<Field className="grid gap-4 sm:grid-cols-2">
-						<Button variant="outline" type="button">
+						<Button
+							onClick={() => {
+								authClient.signIn.social({
+									provider: "github",
+									callbackURL: "/",
+								});
+							}}
+							variant="outline"
+							type="button"
+						>
 							<Github />
 							Continue with Github
 						</Button>
-						<Button variant="outline" type="button">
+						<Button disabled variant="outline" type="button">
 							<Instagram />
 							Continue with Meta
 						</Button>

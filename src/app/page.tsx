@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
 	Breadcrumb,
@@ -14,8 +16,13 @@ import {
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { ModeToggle } from "@/components/ui/theme-toggle-button";
+import { auth } from "@/lib/auth";
 
-export default function Page() {
+export default async function Page() {
+	const session = await auth.api.getSession({
+		headers: await headers(), // you need to pass the headers object.
+	});
+	if (!session) redirect("/auth/login");
 	return (
 		<SidebarProvider>
 			<AppSidebar side="left" />
