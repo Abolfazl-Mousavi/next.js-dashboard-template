@@ -25,11 +25,7 @@ import {
 	SidebarContent,
 	SidebarFooter,
 	SidebarHeader,
-	SidebarMenu,
-	SidebarMenuButton,
-	SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { siteConfig } from "@/config/site";
 import { SearchForm } from "./search-form";
 import { TeamSwitcher } from "./team-switcher";
 
