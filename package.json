@@ -15,9 +15,8 @@
 		"db:migrate": "drizzle-kit migrate",
 		"db:push": "drizzle-kit push",
 		"db:studio": "drizzle-kit studio",
-
-		"cypress:open": "cypress open",
-		"cypress:test": "cypress run",
+		"cypress:open": "SKIP_ENV_VALIDATION=true cypress open",
+		"cypress:test": "SKIP_ENV_VALIDATION=true cypress run",
 		"typecheck": "tsc --noEmit",
 		"prepare": "husky"
 	},
