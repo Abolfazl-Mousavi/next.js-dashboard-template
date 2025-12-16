@@ -7,6 +7,7 @@ export const env = createEnv({
 	 * isn't built with invalid env vars.
 	 */
 	server: {
+		DATABASE_URL: z.string(),
 		AUTH_SECRET:
 			process.env.NODE_ENV === "production"
 				? z.string()
@@ -32,6 +33,7 @@ export const env = createEnv({
 	 */
 	runtimeEnv: {
 		AUTH_SECRET: process.env.AUTH_SECRET,
+		DATABASE_URL: process.env.DATABASE_URL,
 		NODE_ENV: process.env.NODE_ENV,
 		NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
 		// NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,

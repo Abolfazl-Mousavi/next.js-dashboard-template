@@ -6,8 +6,7 @@ import { Geist } from "next/font/google";
 
 export const metadata: Metadata = {
 	title: "NextJs Dashboard Template",
-	description:
-		"A better starter point for creating your dashboard with NextJS",
+	description: "A better starter point for creating your dashboard with NextJS",
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -20,11 +19,7 @@ export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html
-			lang="en"
-			className={`${geist.variable}`}
-			suppressHydrationWarning
-		>
+		<html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
 			<body>
 				<ThemeProvider
 					attribute="class"
