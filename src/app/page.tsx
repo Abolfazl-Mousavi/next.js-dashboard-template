@@ -1,4 +1,3 @@
-import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 import { AppSidebar } from "@/components/app-sidebar"
 import {
@@ -16,12 +15,10 @@ import {
 	SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { ModeToggle } from "@/components/ui/theme-toggle-button"
-import { auth } from "@/lib/auth"
+import { getSession } from "@/server/better-auth/server-session"
 
 export default async function Page() {
-	const session = await auth.api.getSession({
-		headers: await headers(), // you need to pass the headers object.
-	})
+	const session = await getSession()
 	if (!session) redirect("/auth/login")
 	return (
 		<SidebarProvider>

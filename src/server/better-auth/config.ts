@@ -18,7 +18,6 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 		autoSignIn: false,
-		requireEmailVerification: true,
 	},
 	socialProviders: {
 		github: {
@@ -27,3 +26,5 @@ export const auth = betterAuth({
 		},
 	},
 })
+
+export type Session = typeof auth.$Infer.Session

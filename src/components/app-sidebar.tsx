@@ -7,10 +7,10 @@ import {
 	Command,
 	Frame,
 	GalleryVerticalEnd,
+	Github,
 	LifeBuoy,
 	MapIcon,
 	PieChart,
-	Send,
 	Settings2,
 	SquareTerminal,
 } from "lucide-react"
@@ -55,8 +55,8 @@ const data = {
 			isActive: true,
 			items: [
 				{
-					title: "History",
-					url: "#",
+					title: "Data Table",
+					url: "tables",
 				},
 				{
 					title: "Starred",
@@ -137,13 +137,13 @@ const data = {
 	navSecondary: [
 		{
 			title: "Support",
-			url: "#",
+			url: "/support",
 			icon: LifeBuoy,
 		},
 		{
-			title: "Feedback",
-			url: "#",
-			icon: Send,
+			title: "Github",
+			url: "https://github.com/Abolfazl-Mousavi/next.js-dashboard-template",
+			icon: Github,
 		},
 	],
 	projects: [

@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 
 import { Toaster } from "@/components/ui/sonner"
+import { TRPCReactProvider } from "@/trpc/react"
 export const metadata: Metadata = {
 	title: "NextJs Dashboard Template",
 	description: "A better starter point for creating your dashboard with NextJS",
@@ -22,15 +23,17 @@ export default function RootLayout({
 	return (
 		<html className={`${geist.variable}`} lang="en" suppressHydrationWarning>
 			<body>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					disableTransitionOnChange
-					enableSystem
-				>
-					{children}
-				</ThemeProvider>
-				<Toaster />
+				<TRPCReactProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						disableTransitionOnChange
+						enableSystem
+					>
+						{children}
+					</ThemeProvider>
+					<Toaster />
+				</TRPCReactProvider>
 			</body>
 		</html>
 	)
