@@ -1,6 +1,6 @@
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
-import { AppSidebar } from "@/components/app-sidebar";
+import { headers } from "next/headers"
+import { redirect } from "next/navigation"
+import { AppSidebar } from "@/components/app-sidebar"
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -8,21 +8,21 @@ import {
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/breadcrumb"
+import { Separator } from "@/components/ui/separator"
 import {
 	SidebarInset,
 	SidebarProvider,
 	SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { ModeToggle } from "@/components/ui/theme-toggle-button";
-import { auth } from "@/lib/auth";
+} from "@/components/ui/sidebar"
+import { ModeToggle } from "@/components/ui/theme-toggle-button"
+import { auth } from "@/lib/auth"
 
 export default async function Page() {
 	const session = await auth.api.getSession({
 		headers: await headers(), // you need to pass the headers object.
-	});
-	if (!session) redirect("/auth/login");
+	})
+	if (!session) redirect("/auth/login")
 	return (
 		<SidebarProvider>
 			<AppSidebar side="left" />
@@ -31,8 +31,8 @@ export default async function Page() {
 					<div className="flex items-center gap-2 ">
 						<SidebarTrigger className="-ml-1" />
 						<Separator
-							orientation="vertical"
 							className="mr-2 data-[orientation=vertical]:h-4"
+							orientation="vertical"
 						/>
 						<Breadcrumb>
 							<BreadcrumbList>
@@ -60,5 +60,5 @@ export default async function Page() {
 				</div>
 			</SidebarInset>
 		</SidebarProvider>
-	);
+	)
 }

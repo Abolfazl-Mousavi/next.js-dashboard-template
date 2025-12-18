@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { Mail } from "lucide-react";
+import { Mail } from "lucide-react"
 import {
 	Empty,
 	EmptyDescription,
 	EmptyHeader,
 	EmptyMedia,
 	EmptyTitle,
-} from "@/components/ui/empty";
-import { ResendEmailButton } from "./_components/resend-email-button";
+} from "@/components/ui/empty"
+import { ResendEmailButton } from "./_components/resend-email-button"
 
 export default function VerifyEmailPage() {
 	return (
@@ -31,5 +31,5 @@ export default function VerifyEmailPage() {
 				</div>
 			</EmptyHeader>
 		</Empty>
-	);
+	)
 }

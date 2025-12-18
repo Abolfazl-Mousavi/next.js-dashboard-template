@@ -1,5 +1,5 @@
-import { defineConfig } from "cypress";
-import { env } from "@/env";
+import { defineConfig } from "cypress"
+import { env } from "@/env"
 
 export default defineConfig({
 	e2e: {
@@ -10,4 +10,4 @@ export default defineConfig({
 		viewportHeight: 800,
 		video: false,
 	},
-});
+})

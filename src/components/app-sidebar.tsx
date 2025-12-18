@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
 	AudioWaveform,
@@ -13,21 +13,21 @@ import {
 	Send,
 	Settings2,
 	SquareTerminal,
-} from "lucide-react";
-import type * as React from "react";
+} from "lucide-react"
+import type * as React from "react"
 
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavSecondary } from "@/components/nav-secondary";
-import { NavUser } from "@/components/nav-user";
+import { NavMain } from "@/components/nav-main"
+import { NavProjects } from "@/components/nav-projects"
+import { NavSecondary } from "@/components/nav-secondary"
+import { NavUser } from "@/components/nav-user"
 import {
 	Sidebar,
 	SidebarContent,
 	SidebarFooter,
 	SidebarHeader,
-} from "@/components/ui/sidebar";
-import { SearchForm } from "./search-form";
-import { TeamSwitcher } from "./team-switcher";
+} from "@/components/ui/sidebar"
+import { SearchForm } from "./search-form"
+import { TeamSwitcher } from "./team-switcher"
 
 const data = {
 	teams: [
@@ -163,7 +163,7 @@ const data = {
 			icon: MapIcon,
 		},
 	],
-};
+}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
@@ -175,11 +175,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 			<SidebarContent>
 				<NavMain items={data.navMain} />
 				<NavProjects projects={data.projects} />
-				<NavSecondary items={data.navSecondary} className="mt-auto" />
+				<NavSecondary className="mt-auto" items={data.navSecondary} />
 			</SidebarContent>
 			<SidebarFooter>
 				<NavUser />
 			</SidebarFooter>
 		</Sidebar>
-	);
+	)
 }

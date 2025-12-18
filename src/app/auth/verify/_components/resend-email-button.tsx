@@ -1,49 +1,49 @@
-"use client";
+"use client"
 
-import { RotateCw } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button"; // Adjust path to your UI library
+import { RotateCw } from "lucide-react"
+import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button" // Adjust path to your UI library
 
 export function ResendEmailButton() {
-	const [countdown, setCountdown] = useState(0);
-	const [isPending, setIsPending] = useState(false);
+	const [countdown, setCountdown] = useState(0)
+	const [isPending, setIsPending] = useState(false)
 
 	useEffect(() => {
-		if (countdown <= 0) return;
+		if (countdown <= 0) return
 
 		const timer = setInterval(() => {
-			setCountdown((prev) => prev - 1);
-		}, 1000);
+			setCountdown((prev) => prev - 1)
+		}, 1000)
 
-		return () => clearInterval(timer);
-	}, [countdown]);
+		return () => clearInterval(timer)
+	}, [countdown])
 
 	const handleResend = async () => {
-		setIsPending(true);
+		setIsPending(true)
 
 		try {
 			// Replace with your actual API call
 			// await fetch("/api/auth/resend-verification");
 
 			// Start 60 second cooldown
-			setCountdown(60);
+			setCountdown(60)
 		} catch (error) {
-			console.error("Failed to resend:", error);
+			console.error("Failed to resend:", error)
 		} finally {
-			setIsPending(false);
+			setIsPending(false)
 		}
-	};
+	}
 
 	return (
 		<Button
-			variant="outline"
-			onClick={handleResend}
+			className="min-w-35"
 			disabled={countdown > 0 || isPending}
-			className="min-w-[140px]"
+			onClick={handleResend}
+			variant="outline"
 		>
 			{isPending ? <RotateCw className="mr-2 h-4 w-4 animate-spin" /> : null}
 
 			{countdown > 0 ? `Resend in ${countdown}s` : "Resend email"}
 		</Button>
-	);
+	)
 }

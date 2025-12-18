@@ -1,17 +1,17 @@
 // config/site.ts
 export interface SiteConfig {
-	name: string;
-	description: string;
-	url: string;
-	ogImage: string;
-	author: string;
-	keywords: string[];
+	name: string
+	description: string
+	url: string
+	ogImage: string
+	author: string
+	keywords: string[]
 	links: {
-		twitter?: string;
-		github?: string;
-		linkedin?: string;
-		[key: string]: string | undefined;
-	};
+		twitter?: string
+		github?: string
+		linkedin?: string
+		[key: string]: string | undefined
+	}
 }
 
 export const siteConfig: SiteConfig = {
@@ -26,6 +26,6 @@ export const siteConfig: SiteConfig = {
 		github: "https://github.com/",
 		linkedin: "https://linkedin.com/",
 	},
-} as const;
+} as const
 
-export type SiteConfigKeys = keyof typeof siteConfig;
+export type SiteConfigKeys = keyof typeof siteConfig

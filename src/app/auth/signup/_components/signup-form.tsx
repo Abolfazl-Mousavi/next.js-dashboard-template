@@ -1,30 +1,30 @@
-"use client";
+"use client"
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Controller, useForm } from "react-hook-form";
-import { toast } from "sonner";
-import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { Controller, useForm } from "react-hook-form"
+import { toast } from "sonner"
+import z from "zod"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/card"
 import {
 	Field,
 	FieldDescription,
 	FieldError,
 	FieldGroup,
 	FieldLabel,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { authClient } from "@/lib/auth-client";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/field"
+import { Input } from "@/components/ui/input"
+import { authClient } from "@/lib/auth-client"
+import { cn } from "@/lib/utils"
 
 const SignupSchema = z
 	.object({
@@ -36,15 +36,15 @@ const SignupSchema = z
 	.refine((data) => data.password === data.confirmPassword, {
 		message: "Passwords do not match",
 		path: ["confirmPassword"],
-	});
+	})
 
-type SignupFormValues = z.infer<typeof SignupSchema>;
+type SignupFormValues = z.infer<typeof SignupSchema>
 
 export function SignupForm({
 	className,
 	...props
 }: React.ComponentProps<"div">) {
-	const { push } = useRouter();
+	const { push } = useRouter()
 
 	const form = useForm<SignupFormValues>({
 		resolver: zodResolver(SignupSchema),
@@ -54,7 +54,7 @@ export function SignupForm({
 			password: "",
 			confirmPassword: "",
 		},
-	});
+	})
 
 	async function onSubmit(values: SignupFormValues) {
 		await authClient.signUp.email(
@@ -66,14 +66,14 @@ export function SignupForm({
 			},
 			{
 				onSuccess: () => {
-					toast.success("Account created successfully!");
-					push("/auth/verify");
+					toast.success("Account created successfully!")
+					push("/auth/verify")
 				},
 				onError: (ctx) => {
-					toast.error(ctx.error.message);
+					toast.error(ctx.error.message)
 				},
 			},
-		);
+		)
 	}
 
 	return (
@@ -90,16 +90,16 @@ export function SignupForm({
 						<FieldGroup>
 							{/* Full Name Field */}
 							<Controller
-								name="name"
 								control={form.control}
+								name="name"
 								render={({ field, fieldState }) => (
 									<Field data-invalid={fieldState.invalid}>
 										<FieldLabel htmlFor={field.name}>Full Name</FieldLabel>
 										<Input
 											{...field}
+											aria-invalid={fieldState.invalid}
 											id={field.name}
 											placeholder="John Doe"
-											aria-invalid={fieldState.invalid}
 										/>
 										{fieldState.invalid && (
 											<FieldError errors={[fieldState.error]} />
@@ -110,17 +110,17 @@ export function SignupForm({
 
 							{/* Email Field */}
 							<Controller
-								name="email"
 								control={form.control}
+								name="email"
 								render={({ field, fieldState }) => (
 									<Field data-invalid={fieldState.invalid}>
 										<FieldLabel htmlFor={field.name}>Email</FieldLabel>
 										<Input
 											{...field}
-											id={field.name}
-											type="email"
-											placeholder="m@example.com"
 											aria-invalid={fieldState.invalid}
+											id={field.name}
+											placeholder="m@example.com"
+											type="email"
 										/>
 										{fieldState.invalid && (
 											<FieldError errors={[fieldState.error]} />
@@ -132,16 +132,16 @@ export function SignupForm({
 							{/* Password Grid */}
 							<div className="grid grid-cols-2 gap-4">
 								<Controller
-									name="password"
 									control={form.control}
+									name="password"
 									render={({ field, fieldState }) => (
 										<Field data-invalid={fieldState.invalid}>
 											<FieldLabel htmlFor={field.name}>Password</FieldLabel>
 											<Input
 												{...field}
+												aria-invalid={fieldState.invalid}
 												id={field.name}
 												type="password"
-												aria-invalid={fieldState.invalid}
 											/>
 											{fieldState.invalid && (
 												<FieldError errors={[fieldState.error]} />
@@ -150,16 +150,16 @@ export function SignupForm({
 									)}
 								/>
 								<Controller
-									name="confirmPassword"
 									control={form.control}
+									name="confirmPassword"
 									render={({ field, fieldState }) => (
 										<Field data-invalid={fieldState.invalid}>
 											<FieldLabel htmlFor={field.name}>Confirm</FieldLabel>
 											<Input
 												{...field}
+												aria-invalid={fieldState.invalid}
 												id={field.name}
 												type="password"
-												aria-invalid={fieldState.invalid}
 											/>
 											{fieldState.invalid && (
 												<FieldError errors={[fieldState.error]} />
@@ -171,9 +171,9 @@ export function SignupForm({
 
 							<Field>
 								<Button
-									type="submit"
 									className="w-full"
 									disabled={form.formState.isSubmitting}
+									type="submit"
 								>
 									{form.formState.isSubmitting
 										? "Creating account..."
@@ -182,8 +182,8 @@ export function SignupForm({
 								<FieldDescription className="text-center">
 									Already have an account?{" "}
 									<Link
-										href="/auth/login"
 										className="underline underline-offset-4"
+										href="/auth/login"
 									>
 										Sign in
 									</Link>
@@ -195,15 +195,15 @@ export function SignupForm({
 			</Card>
 			<FieldDescription className="px-6 text-center">
 				By clicking continue, you agree to our{" "}
-				<Link href="/terms-of-service" className="underline underline-offset-4">
+				<Link className="underline underline-offset-4" href="/terms-of-service">
 					Terms of Service
 				</Link>{" "}
 				and{" "}
-				<Link href="/privacy-policy" className="underline underline-offset-4">
+				<Link className="underline underline-offset-4" href="/privacy-policy">
 					Privacy Policy
 				</Link>
 				.
 			</FieldDescription>
 		</div>
-	);
+	)
 }

@@ -9,4 +9,4 @@ module.exports = {
 		"subject-case": [2, "always", "sentence-case"],
 		"subject-full-stop": [2, "never", "."],
 	},
-};
+}

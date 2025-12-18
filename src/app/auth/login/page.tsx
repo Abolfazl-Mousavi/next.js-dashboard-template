@@ -1,7 +1,7 @@
-import { GalleryVerticalEnd } from "lucide-react";
-import Link from "next/link";
-import { FieldDescription } from "@/components/ui/field";
-import { LoginForm } from "./_components/login-form";
+import { GalleryVerticalEnd } from "lucide-react"
+import Link from "next/link"
+import { FieldDescription } from "@/components/ui/field"
+import { LoginForm } from "./_components/login-form"
 
 export default function LoginPage() {
 	return (
@@ -9,8 +9,8 @@ export default function LoginPage() {
 			<div className="w-full max-w-sm">
 				<div className="flex flex-col items-center gap-2 text-center">
 					<Link
-						href="/landing"
 						className="flex flex-col items-center gap-2 font-medium"
+						href="/landing"
 					>
 						<div className="flex size-8 items-center justify-center rounded-md">
 							<GalleryVerticalEnd className="size-6" />
@@ -25,5 +25,5 @@ export default function LoginPage() {
 				<LoginForm />
 			</div>
 		</div>
-	);
+	)
 }
