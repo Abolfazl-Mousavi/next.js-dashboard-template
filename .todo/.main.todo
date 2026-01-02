@@ -1,0 +1,22 @@
+# TODO
+
+# 🌐 Localization
+    - [ ] implement i18n 
+        - [ ] implement the i18n w/o focusing on seo (save state in localstorage)
+        - [ ] set the default to english
+        - [ ] add support for farsi
+
+# Create Data access layer 
+    - [ ] Admin Access 
+    - [ ] User Access
+    - [ ] ABAC
+
+# Advanced Shadcn Datatable
+    - [ ] create an advanced datatable with these abilities:
+        - [ ] filter products based on the database
+        - [ ] select and show columns based on dal
+
+# Redis 
+    - [ ] Init
+        - [ ] Queue
+        - [ ] key,value cache
